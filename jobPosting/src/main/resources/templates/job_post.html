@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Job Post Form</title>
+</head>
+<body>
+    <center>
+        <h2>Job Post Form</h2>
+        <form th:action="@{/save/job_post}" th:object="${user}" method="post">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title" th:field="*{title}" required>
+                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><Br><Br>
+            </div>
+            <div>
+                <label for="location">Location</label>
+                <input type="text" id="location" th:field="*{location}" required>
+                <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span><Br><Br>
+            </div>
+            <div>
+                <label for="category">Category</label>
+                <input type="text" id="category" th:field="*{category}" required>
+                <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span><Br><Br>
+            </div>
+            <div>
+                <label for="employmentType">Employment Type</label>
+                <input type="text" id="employmentType" th:field="*{employmentType}" required>
+                <span th:if="${#fields.hasErrors('employmentType')}" th:errors="*{employmentType}"></span><Br><Br>
+            </div>
+            <div>
+                <label for="workModel">Work Model</label>
+                <input type="text" id="workModel" th:field="*{workModel}" required>
+                <span th:if="${#fields.hasErrors('workModel')}" th:errors="*{workModel}"></span><Br><Br>
+            </div>
+            <div>
+                <label for="experience">Experience</label>
+                <input type="text" id="experience" th:field="*{experience}" required>
+                <span th:if="${#fields.hasErrors('experience')}" th:errors="*{experience}"></span><Br><Br>
+            </div>
+            <div>
+                <label for="salary">Salary</label>
+                <input type="text" id="salary" th:field="*{salary}" required>
+                <span th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></span><Br><Br>
+            </div>
+            <button type="submit">Post Job</button>
+        </form>
+        <p th:if="${message}" th:text="${message}"></p>
+    </center>
+</body>
+</html>
